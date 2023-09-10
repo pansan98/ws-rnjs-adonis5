@@ -1,0 +1,5 @@
+{
+    "watch": ["*"],
+    "ext": "json,ts,env",
+    "ignore": ["database/", "node_modules/", "package.json", "package-lock.json"]
+}
