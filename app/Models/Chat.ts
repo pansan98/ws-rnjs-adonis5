@@ -25,9 +25,18 @@ export default class Chat extends BaseModel {
 	@column()
 	public reply_to: number
 
+	@column()
+	public trx_id: string
+
 	@column.dateTime({ autoCreate: true })
 	public createdAt: DateTime
 
 	@column.dateTime({ autoCreate: true, autoUpdate: true })
 	public updatedAt: DateTime
+
+	public static async logs(room_id: number) {
+		return await Chat.query()
+			.where('room_id', room_id)
+			.exec()
+	}
 }
